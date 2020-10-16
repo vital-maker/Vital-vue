@@ -1,0 +1,27 @@
+.justify-content-evenly {
+  justify-content: space-evenly !important;
+}
+
+@media (min-width: 576px) {
+  .justify-content-sm-evenly {
+    justify-content: space-evenly !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .justify-content-md-evenly {
+    justify-content: space-evenly !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .justify-content-lg-evenly {
+    justify-content: space-evenly !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .justify-content-xl-evenly {
+    justify-content: space-evenly !important;
+  }
+}
