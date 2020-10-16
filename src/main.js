@@ -15,7 +15,7 @@ import VTSpan from '@/components/VTSpan'
 import VTAlert from '@/components/VTAlert'
 import VTButtonToggle from '@/components/VTButtonToggle'
 import VTCol from '@/components/VTCol'
-
+// import {VTButton} from '@/index'
 window.$ = require('jquery')
 createApp(App)
   .mixin(mixins)
