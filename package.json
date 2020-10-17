@@ -1,6 +1,6 @@
 {
   "name": "vital-vue",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "private": false,
   "deprecated": false,
   "scripts": {
@@ -9,6 +9,7 @@
     "build-bundle": "vue-cli-service build --target lib --name vital-vue ./src/index.js",
     "lint": "vue-cli-service lint"
   },
+  "description": "vital-vue is for who like design with vue js using bootstrap and much more",
   "keywords": [
     "vue",
     "vital",
@@ -23,16 +24,17 @@
     "email": "me.mohamed.elnagar@gmail.com"
   },
   "files": [
-    "dist/*",
-    "src/*"
+    "dist/*"
   ],
   "dependencies": {
-    "@vue/runtime-core": "^3.0.1",
+    "@popperjs/core": "^2.5.3",
     "bootstrap": "^4.5.3",
     "core-js": "^3.6.5",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

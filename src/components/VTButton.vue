@@ -1,6 +1,7 @@
 <template>
   <button type="button"
-          :class="[btnColor,btnSize,btnBlock,btnRounded,btnSquared]">
+          :class="[btnColor,btnSize,btnBlock,btnRounded,btnSquared]"
+          >
     <slot>{{ value }}</slot>
   </button>
 </template>

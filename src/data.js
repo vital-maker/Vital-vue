@@ -75,6 +75,26 @@ const mixins = {
     colsXl: {
       type: [String, Number],
       default: null
+    },
+    alert: {
+      type: Boolean,
+      default: false
+    },
+    dropdown: {
+      type: Boolean,
+      default: false
+    },
+    cardLink: {
+      type: Boolean,
+      default: false
+    },
+    muted: {
+      type: Boolean,
+      default: false
+    },
+    tag: {
+      type: String,
+      default: 'h6'
     }
   },
   data () {
@@ -87,6 +107,8 @@ const mixins = {
         'success',
         'secondary',
         'light',
+        'black',
+        'aqua',
         'dark'
       ],
       btnColorLink: ['link'],
@@ -103,10 +125,12 @@ const mixins = {
       btnSizeArray: [
         'sm', 'lg'
       ],
+      rowColumns: ['1', '2', '3', '4', '5', '6'],
       columns: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', 'auto'],
-      grid: ['xs', 'sm', 'md', 'lg', 'xl'],
+      gridValues: ['sm', 'md', 'lg', 'xl'],
       alignOptions: ['start', 'center', 'end'],
-      justifyOptions: ['start', 'center', 'end', 'around', 'between', 'evenly']
+      justifyOptions: ['start', 'center', 'end', 'around', 'between', 'evenly'],
+      target: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p']
     }
   },
   computed: {
@@ -189,7 +213,7 @@ const mixins = {
       if (this.col === true) {
         grid += 'col '
       }
-      if (this.columns.includes(String(this.xs))) {
+      if ([...this.columns, ...this.gridValues].includes(String(this.xs))) {
         grid += `col-${this.xs} `
       }
       if (this.columns.includes(String(this.sm))) {
@@ -222,22 +246,65 @@ const mixins = {
     },
     rowGridSystem: function () {
       let grid = ''
-      if (this.columns.includes(String(this.colsXs))) {
+      if (this.rowColumns.includes(String(this.colsXs))) {
         grid += `row-cols-${this.colsXs} `
       }
-      if (this.columns.includes(String(this.colsSm))) {
+      if (this.rowColumns.includes(String(this.colsSm))) {
         grid += `row-cols-sm-${this.colsSm} `
       }
-      if (this.columns.includes(String(this.colsMd))) {
+      if (this.rowColumns.includes(String(this.colsMd))) {
         grid += `row-cols-md-${this.colsMd} `
       }
-      if (this.columns.includes(String(this.colsLg))) {
+      if (this.rowColumns.includes(String(this.colsLg))) {
         grid += `row-cols-lg-${this.colsLg} `
       }
-      if (this.columns.includes(String(this.colsXl))) {
+      if (this.rowColumns.includes(String(this.colsXl))) {
         grid += `row-cols-xl-${this.colsXl}`
       }
       return grid
+    },
+    typeAlert: function () {
+      let alert = ''
+      switch (this.alert) {
+        case true:
+          alert = 'alert-link'
+          break
+        default:
+          alert = null
+      }
+      return alert
+    },
+    dropdownLink: function () {
+      let dropDown = ''
+      switch (this.dropdown) {
+        case true:
+          dropDown = 'dropdown-item'
+          break
+        default:
+          dropDown = null
+      }
+      return dropDown
+    },
+    activeCardLink: function () {
+      let link = null
+      if (this.cardLink === true) {
+        link = 'card-link'
+      }
+      return link
+    },
+    tagTarget: function () {
+      if (this.target.includes(this.tag)) {
+        return this.tag
+      } else {
+        return 'h5'
+      }
+    },
+    titleMuted: function () {
+      let mute = null
+      if (this.muted) {
+        mute = 'text-muted'
+      }
+      return mute
     }
   }
 }

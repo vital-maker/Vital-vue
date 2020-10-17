@@ -1,5 +1,5 @@
 <template>
-  <span :class="[btnBadge]"><slot>{{ value }}</slot></span>
+  <span :class="[btnBadge]"><slot>{{ text }}</slot></span>
 </template>
 
 <script>
@@ -10,9 +10,9 @@ export default {
       type: String,
       default: ''
     },
-    value: {
+    text: {
       type: String,
-      default: '0'
+      default: 'span'
     }
   },
   computed: {}

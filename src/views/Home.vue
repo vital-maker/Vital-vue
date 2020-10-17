@@ -1,12 +1,12 @@
 <template>
-  <div :class="[gridSystem]">
-    <slot></slot>
-  </div>
+  <VTFluid>
+    mohamed elnagar
+  </VTFluid>
 </template>
 
 <script>
 export default {
-  name: 'VTCol'
+  name: 'Home'
 }
 </script>
 

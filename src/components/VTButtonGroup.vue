@@ -1,5 +1,7 @@
 <template>
-  <div :class="[vertical === false ? 'btn-group' : 'btn-group-vertical',btbGroupSize]">
+  <div
+    :class="[vertical === false ? 'btn-group' : 'btn-group-vertical',btbGroupSize]"
+    role="group" :aria-label="label">
     <slot></slot>
   </div>
 </template>
@@ -15,6 +17,10 @@ export default {
     size: {
       type: String,
       default: ''
+    },
+    label: {
+      type: String,
+      default: null
     }
   },
   computed: {

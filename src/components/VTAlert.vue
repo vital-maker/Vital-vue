@@ -1,6 +1,6 @@
 <template>
   <div :class="[typeAlert,dismissible]" role="alert">
-    <slot>{{ value }}</slot>
+    <slot>{{ text }}</slot>
     <button v-if="dismiss" type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -16,7 +16,7 @@ export default {
       type: String,
       default: ''
     },
-    value: {
+    text: {
       type: String,
       default: 'Some of content'
     },

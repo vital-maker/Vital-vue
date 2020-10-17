@@ -6,17 +6,7 @@
 
 <script>
 export default {
-  name: 'VTRow',
-  props: {
-
-  },
-  data () {
-    return {
-    }
-  },
-  computed: {
-
-  }
+  name: 'VTRow'
 }
 </script>
 

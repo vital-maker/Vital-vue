@@ -1,6 +1,6 @@
 <template>
-  <a :href="to" :class="[btnColor,btnSize,btnBlock,btnRounded,dropdownLink,btnBadge,typeAlert]">
-    <slot>{{ value }}</slot>
+  <a :href="href" :class="[btnColor,btnSize,btnBlock,btnRounded,dropdownLink,btnBadge,typeAlert,activeCardLink]">
+    <slot>{{ text }}</slot>
   </a>
 </template>
 
@@ -8,56 +8,24 @@
 export default {
   name: 'VTLink',
   props: {
-    dropdown: {
-      type: Boolean,
-      default: false
-    },
-    value: {
+    text: {
       type: String,
       default: 'link'
+    },
+    href: {
+      type: String,
+      default: '#'
     },
     to: {
       type: String,
       default: '#'
-    },
-    href: {
-      type: String,
-      default: ''
-    },
-    alert: {
-      type: Boolean,
-      default: false
     }
   },
   data () {
-    return {
-
-    }
+    return {}
   },
   computed: {
-    typeAlert: function () {
-      let alert = ''
-      switch (this.alert) {
-        case true:
-          alert = 'alert-link'
-          break
-        default:
-          alert = null
-      }
-      return alert
-    },
 
-    dropdownLink: function () {
-      let dropDown = ''
-      switch (this.dropdown) {
-        case true:
-          dropDown = 'dropdown-item'
-          break
-        default:
-          dropDown = null
-      }
-      return dropDown
-    }
   }
 }
 </script>

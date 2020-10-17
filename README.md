@@ -5,4 +5,15 @@
   <a href="#"><img src="/src/assets/svg/license.svg" alt="License"></a>
   <br>
 </p>
-<h2 align="center">vital-vue</h2>
+<h2 align="left">vital-vue</h2>
+<p align="left">
+Introduction
+</p>
+<h2 align="left">Documentation</h2>
+<p align="left">
+Coming soon...
+</p>
+<h2 align="left">License</h2>
+<p align="left">
+MIT
+</p>

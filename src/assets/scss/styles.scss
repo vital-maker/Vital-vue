@@ -1,7 +1,35 @@
 .justify-content-evenly {
   justify-content: space-evenly !important;
 }
-
+.btn-black {
+  color: #fff;
+  background-color: #000000;
+  border-color: #000000;
+}
+.btn-black:hover {
+  color: #fff;
+  background-color: #717171;
+  border-color: #717171;
+  outline-color: #717171;
+}
+.btn-black:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(113, 113, 113,.25);
+}
+.btn-aqua {
+  color: #fff;
+  background-color: #00ffff;
+  border-color: #00ffff;
+}
+.btn-aqua:hover {
+  color: #fff;
+  background-color: #00d0d0;
+  border-color: #00d0d0;
+}
+.btn-aqua:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 208, 208,.25);
+}
 @media (min-width: 576px) {
   .justify-content-sm-evenly {
     justify-content: space-evenly !important;
