@@ -10,11 +10,11 @@
 Introduction
 </p>
 <h2 align="left">Quick install</h2>
-```
+```node.js
 npm install vital-vue
 ```
 <h2 align="left">Using</h2>
-```
+```javascript
 import vital from vital
 
 Vue.use(vital)
