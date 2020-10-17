@@ -19,7 +19,7 @@ npm install vital-vue
 
 ```javascript 
 
-import vital from 'vital'
+import vital from 'vital-vue'
 
 Vue.use(vital)
 
