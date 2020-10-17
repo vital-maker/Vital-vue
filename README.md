@@ -19,7 +19,7 @@ npm install vital-vue
 
 ```javascript 
 
-import vital from vital
+import vital from 'vital'
 
 Vue.use(vital)
 
@@ -32,9 +32,3 @@ Coming soon...
 <p align="left">
 MIT
 </p>
-
-```
-$ cd ../lorem
-$ npm install
-$ npm start
-```
