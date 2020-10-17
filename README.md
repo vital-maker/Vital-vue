@@ -9,6 +9,16 @@
 <p align="left">
 Introduction
 </p>
+<h2 align="left">Quick install</h2>
+```
+npm install vital-vue
+```
+<h2 align="left">Using</h2>
+```
+import vital from vital
+
+Vue.use(vital)
+```
 <h2 align="left">Documentation</h2>
 <p align="left">
 Coming soon...
