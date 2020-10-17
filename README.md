@@ -32,3 +32,9 @@ Coming soon...
 <p align="left">
 MIT
 </p>
+
+```
+$ cd ../lorem
+$ npm install
+$ npm start
+```
