@@ -36,7 +36,7 @@
             <VTCardBody>
               <VTCardTitle tag="h2"></VTCardTitle>
               <VTCardSubTitle tag="h5" muted></VTCardSubTitle>
-              <VTCardText></VTCardText>
+              <VTCardText :text-shadow="{color:'rgba(0 128 255/.9)'}" lighter bg-color="light"></VTCardText>
             </VTCardBody>
           </VTCard>
         </VTCol>

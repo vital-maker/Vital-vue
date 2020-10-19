@@ -16,7 +16,7 @@ export default {
     powerTag: function () {
       if (this.tagsOptions.includes(this.tag)) {
         return this.tag
-      }else {
+      } else {
         return 'div'
       }
     }

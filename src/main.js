@@ -26,6 +26,7 @@ import VTCardTitle from '@/components/VTCardTitle'
 import VTCardSubTitle from '@/components/VTCardSubTitle'
 import VTCardText from '@/components/VTCardText'
 import VTLabel from '@/components/VTLabel'
+import VTHead from '@/components/VTHead'
 // import {VTButton} from '@/index'
 window.$ = require('jquery')
 createApp(App)
@@ -51,5 +52,6 @@ createApp(App)
   .component('VTCardSubTitle', VTCardSubTitle)
   .component('VTCardText', VTCardText)
   .component('VTLabel', VTLabel)
+  .component('VTHead', VTHead)
   .use(router)
   .mount('#app')

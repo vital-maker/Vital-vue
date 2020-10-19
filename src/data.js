@@ -95,6 +95,57 @@ const mixins = {
     tag: {
       type: String,
       default: 'h6'
+    },
+    bold: {
+      type: Boolean,
+      default: false
+    },
+    italic: {
+      type: Boolean,
+      default: false
+    },
+    light: {
+      type: Boolean,
+      default: false
+    },
+    bolder: {
+      type: Boolean,
+      default: false
+    },
+    normal: {
+      type: Boolean,
+      default: false
+    },
+    lighter: {
+      type: Boolean,
+      default: false
+    },
+    bgColor: {
+      type: String,
+      default: null
+    },
+    textStyle: {
+      type: String,
+      default: null
+    },
+    textLast: {
+      type: String,
+      default: null
+    },
+    decoration: {
+      type: String,
+      default: null
+    },
+    textShadow: {
+      type: Object,
+      default: function () {
+        return {
+          x: '0',
+          y: '0',
+          blur: '1px',
+          color: 'gray'
+        }
+      }
     }
   },
   data () {
@@ -130,7 +181,49 @@ const mixins = {
       gridValues: ['sm', 'md', 'lg', 'xl'],
       alignOptions: ['start', 'center', 'end'],
       justifyOptions: ['start', 'center', 'end', 'around', 'between', 'evenly'],
-      target: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p']
+      headTags: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+      target: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'],
+      bgColorOptions: ['secondary', 'light', 'danger', 'dark', 'info', 'primary', 'success', 'warning', 'transparent', 'white'],
+      textColors: ['white', 'danger', 'info', 'light', 'primary', 'dark', 'secondary', 'success', 'warning'],
+      textPositions: ['center', 'left', 'right', 'justify', 'end', 'start'],
+      textPositionLast: ['auto'],
+      textDecoration: ['none', 'unset', 'through', 'overline', 'underline'],
+      textTypes: ['body', 'uppercase', 'reset', 'truncate', 'break', 'capitalize', 'hide', 'lowercase', 'monospace', 'wrap', 'nowrap'],
+      cssUnits: ['cm', 'mm', 'in', 'px', 'pt', 'pc']
+    }
+  },
+  methods: {
+    matchUnits: function (key) {
+      const match = String(key).match(/(\d*\.?\d*)(.*)/)
+      let value = ''
+      if (match[1]) {
+        value = match[1]
+      } else {
+        value = 0
+      }
+      if (this.cssUnits.includes(match[2])) {
+        value += match[2]
+      } else {
+        value += 'px'
+      }
+      return value
+    },
+    matchColor: function (strColor) {
+      const s = new Option().style
+      s.color = strColor
+      const color = s.color === strColor
+      const hex = /(^#[0-9A-Fa-f]{3}$)|(^#[0-9A-Fa-f]{6}$)|(^#[0-9A-Fa-f]{8}$)/i.test(
+        strColor
+      )
+      const rgbOrRgba = /(^rgb\((\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*){1}(\s{1}|,{1})(\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*){1}(\s{1}|,{1})(\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*){1}\))|(^rgb\((\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*){1},{1}(\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*){1},{1}(\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*){1},{1}?(\s*((0|1)|(0)?\.\d*|[0-9]{1,2}%)\s*){1}?\))|(^rgb\((\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*){1}\s{1}(\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*){1}\s{1}(\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*){1}\/{1}?(\s*((0|1)|(0)?\.\d*|[0-9]{1,2}%)\s*){1}?\))|(^rgba\((\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*){1}(\s{1}|,{1})(\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*){1}(\s{1}|,{1})(\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*){1}\/{1}(\s*((0|1)|(0)?\.\d*|[0-9]{1,2}%)\s*){1})\)|(^rgba\((\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*){1},{1}(\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*){1},{1}(\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*){1},{1}(\s*((0|1)|(0)?\.\d*|[0-9]{1,2}%)\s*){1})\)/i.test(
+        strColor
+      )
+      if (color === true || hex === true || rgbOrRgba === true) {
+        return strColor
+      } else {
+        console.error('invalid color ' + strColor)
+        return 'black'
+      }
     }
   },
   computed: {
@@ -305,6 +398,97 @@ const mixins = {
         mute = 'text-muted'
       }
       return mute
+    },
+    fontBold: function () {
+      if (this.bold) {
+        return 'font-weight-bold'
+      } else {
+        return null
+      }
+    },
+    fontItalic: function () {
+      if (this.italic) {
+        return 'font-italic'
+      } else {
+        return null
+      }
+    },
+    fontLight: function () {
+      if (this.light) {
+        return 'font-weight-light'
+      } else {
+        return null
+      }
+    },
+    fontBolder: function () {
+      if (this.bolder) {
+        return 'font-weight-bolder'
+      } else {
+        return null
+      }
+    },
+    fontNormal: function () {
+      if (this.normal) {
+        return 'font-weight-normal'
+      } else {
+        return null
+      }
+    },
+    fontLighter: function () {
+      if (this.lighter) {
+        return 'font-weight-lighter'
+      } else {
+        return null
+      }
+    },
+    backGroundColor: function () {
+      if (this.bgColorOptions.includes(this.bgColor)) {
+        return `bg-${this.bgColor}`
+      } else {
+        return null
+      }
+    },
+    textOptions: function () {
+      return [...this.textColors, ...this.textPositions, ...this.textTypes]
+    },
+    textLastStyle: function () {
+      return [...this.textPositions, ...this.textPositionLast]
+    },
+    textStyleValue: function () {
+      if (this.textOptions.includes(this.textStyle)) {
+        return `text-${this.textStyle}`
+      } else {
+        return null
+      }
+    },
+    textStyleLast: function () {
+      if (this.textLastStyle.includes(this.textLast)) {
+        return `text-last-${this.textLast}`
+      } else {
+        return null
+      }
+    },
+    textStyleDecoration: function () {
+      if (this.textDecoration.includes(this.decoration)) {
+        return `text-decoration-${this.decoration}`
+      } else {
+        return null
+      }
+    },
+    textStyleShadow: function () {
+      const x = this.matchUnits(this.textShadow.x)
+      const y = this.matchUnits(this.textShadow.y)
+      const blur = this.matchUnits(this.textShadow.blur)
+      const color = this.matchColor(this.textShadow.color)
+      return `text-shadow: ${x} ${y} ${this.textShadow.blur ? blur : '1px'} ${color}`
+    },
+    headTagsTarget: function () {
+      if (this.headTags.includes(this.tag)) {
+        return this.tag
+      } else {
+        console.error('invalid head tag name')
+        return 'h3'
+      }
     }
   }
 }

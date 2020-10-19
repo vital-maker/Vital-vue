@@ -1,6 +1,57 @@
 .justify-content-evenly {
   justify-content: space-evenly !important;
 }
+.text-decoration-through {
+  text-decoration: line-through;
+}
+
+.text-decoration-overline {
+  text-decoration: overline;
+}
+
+.text-decoration-underline {
+  text-decoration: underline;
+}
+
+.text-decoration-unset {
+  text-decoration: unset;
+}
+
+.text-end {
+  text-align: end;
+}
+
+.text-last-center {
+  text-align-last: center;
+}
+
+.text-last-left {
+  text-align-last: left;
+}
+
+.text-last-right {
+  text-align-last: right;
+}
+
+.text-last-auto {
+  text-align-last: auto;
+}
+
+.text-last-end {
+  text-align-last: end;
+}
+
+.text-last-justify {
+  text-align-last: justify;
+}
+
+.text-last-start {
+  text-align-last: start;
+}
+
+.text-last-unset {
+  text-align-last: unset;
+}
 .btn-black {
   color: #fff;
   background-color: #000000;

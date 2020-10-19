@@ -19,6 +19,7 @@ import VTCardTitle from '@/components/VTCardTitle'
 import VTCardSubTitle from '@/components/VTCardSubTitle'
 import VTCardText from '@/components/VTCardText'
 import VTLabel from '@/components/VTLabel'
+import VTHead from '@/components/VTHead'
 import '@/assets/scss/styles.scss'
 import mixins from '@/data'
 const vital = {
@@ -42,7 +43,8 @@ const vital = {
   VTCardTitle,
   VTCardSubTitle,
   VTCardText,
-  VTLabel
+  VTLabel,
+  VTHead
 }
 
 function install (Vue) {
@@ -91,5 +93,6 @@ export { default as VTCardTitle } from '@/components/VTCardTitle'
 export { default as VTCardSubTitle } from '@/components/VTCardSubTitle'
 export { default as VTCardText } from '@/components/VTCardText'
 export { default as VTLabel } from '@/components/VTLabel'
+export { default as VTHead } from '@/components/VTHead'
 
 export default vital
