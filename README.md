@@ -29,6 +29,29 @@ Vue.use(vital)
 | component | Description |
 |-----------|-------------|
 | VTButton | for create button |
+| VTButtonToggle | for create bootstrap toggle button |
+| VTButtonGroup | for create bootstrap button group |
+| VTFluid | for create div with class `container-fluid` |
+| VTContainer | for create div with class `container` |
+| VTRow | for create div with class `row` |
+| VTCol | for grid system |
+| VTButtonDropDown | for create dropdown button |
+| VTLink | for create `<a>` tag with `href` |
+| VTSpan | for create span tag |
+| VTAlert | for create alert using bootstrap |
+| VTRoute | for create `<RouteView>` with `to` |
+| VTBreadcrumb | for create bootsrtap breadcrumb |
+| VTLi | for create `<li>` tag |
+| VTToolbar | for create bootstrap toolbar |
+| VTCard | for create bootstrap card |
+| VTCardBody | for create bootstrap card body |
+| VTCardTitle | for create bootstrap card title |
+| VTCardSubTitle | for create bootstrap card sub title |
+| VTCardText | for create bootstrap card text |
+| VTLabel | for create `<label>` tag |
+| VTHead | for create from `<h1>` tag to `<h6>` |
+| VTtransition | soon... |
+| VTtag | soon... |
 
 ## Documentation
 <p align="left">
