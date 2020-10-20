@@ -15,7 +15,7 @@ Introduction
 npm install vital-vue
 ```
 
-<h2 align="left">Using</h2>
+## Usage
 
 ```javascript 
 
@@ -24,11 +24,19 @@ import vital from 'vital-vue'
 Vue.use(vital)
 
 ```
-<h2 align="left">Documentation</h2>
+## Components
+
+| component | Description |
+|-----------|-------------|
+| VTButton | for create button |
+
+## Documentation
 <p align="left">
 Coming soon...
 </p>
-<h2 align="left">License</h2>
-<p align="left">
+
+## License
+
 [MIT](https://opensource.org/licenses/MIT)
-</p>
+
+Copyright (c) 2020 Mohamed Elnagar
