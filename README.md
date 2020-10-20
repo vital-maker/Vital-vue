@@ -30,5 +30,5 @@ Coming soon...
 </p>
 <h2 align="left">License</h2>
 <p align="left">
-MIT
+[MIT](https://opensource.org/licenses/MIT)
 </p>
