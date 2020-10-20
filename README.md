@@ -5,6 +5,7 @@
   <a href="https://github.com/vital-maker/Vital-vue/blob/main/LICENSE"><img src="https://img.shields.io/github/license/vital-maker/Vital-vue" alt="License"></a>
   <br>
 </p>
+
 ## vital-vue
 
 vital-vue is for who like design with vue js using bootstrap and much more
