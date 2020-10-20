@@ -72,27 +72,50 @@ if (GlobalVue) {
 
 vital.install = install
 
-export { default as VTButton } from '@/components/VTButton'
-export { default as VTButtonGroup } from '@/components/VTButtonGroup'
-export { default as VTFluid } from '@/components/VTFluid'
-export { default as VTContainer } from '@/components/VTContainer'
-export { default as VTRow } from '@/components/VTRow'
-export { default as VTButtonDropDown } from '@/components/VTButtonDropDown'
-export { default as VTLink } from '@/components/VTLink'
-export { default as VTSpan } from '@/components/VTSpan'
-export { default as VTAlert } from '@/components/VTAlert'
-export { default as VTButtonToggle } from '@/components/VTButtonToggle'
-export { default as VTCol } from '@/components/VTCol'
-export { default as VTRoute } from '@/components/VTRoute'
-export { default as VTBreadcrumb } from '@/components/VTBreadcrumb'
-export { default as VTLi } from '@/components/VTLi'
-export { default as VTToolbar } from '@/components/VTToolbar'
-export { default as VTCard } from '@/components/VTCard'
-export { default as VTCardBody } from '@/components/VTCardBody'
-export { default as VTCardTitle } from '@/components/VTCardTitle'
-export { default as VTCardSubTitle } from '@/components/VTCardSubTitle'
-export { default as VTCardText } from '@/components/VTCardText'
-export { default as VTLabel } from '@/components/VTLabel'
-export { default as VTHead } from '@/components/VTHead'
+export {
+  VTButton,
+  VTButtonGroup,
+  VTFluid,
+  VTContainer,
+  VTRow,
+  VTButtonDropDown,
+  VTLink,
+  VTSpan,
+  VTAlert,
+  VTButtonToggle,
+  VTCol,
+  VTRoute,
+  VTBreadcrumb,
+  VTLi,
+  VTToolbar,
+  VTCard,
+  VTCardBody,
+  VTCardTitle,
+  VTCardSubTitle,
+  VTCardText,
+  VTLabel,
+  VTHead
+}
+// export { default as VTButtonGroup } from '@/components/VTButtonGroup'
+// export { default as VTFluid } from '@/components/VTFluid'
+// export { default as VTContainer } from '@/components/VTContainer'
+// export { default as VTRow } from '@/components/VTRow'
+// export { default as VTButtonDropDown } from '@/components/VTButtonDropDown'
+// export { default as VTLink } from '@/components/VTLink'
+// export { default as VTSpan } from '@/components/VTSpan'
+// export { default as VTAlert } from '@/components/VTAlert'
+// export { default as VTButtonToggle } from '@/components/VTButtonToggle'
+// export { default as VTCol } from '@/components/VTCol'
+// export { default as VTRoute } from '@/components/VTRoute'
+// export { default as VTBreadcrumb } from '@/components/VTBreadcrumb'
+// export { default as VTLi } from '@/components/VTLi'
+// export { default as VTToolbar } from '@/components/VTToolbar'
+// export { default as VTCard } from '@/components/VTCard'
+// export { default as VTCardBody } from '@/components/VTCardBody'
+// export { default as VTCardTitle } from '@/components/VTCardTitle'
+// export { default as VTCardSubTitle } from '@/components/VTCardSubTitle'
+// export { default as VTCardText } from '@/components/VTCardText'
+// export { default as VTLabel } from '@/components/VTLabel'
+// export { default as VTHead } from '@/components/VTHead'
 
 export default vital
