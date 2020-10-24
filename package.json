@@ -23,8 +23,20 @@
     "name": "Mohamed Elnagar",
     "email": "me.mohamed.elnagar@gmail.com"
   },
+  "bugs": {
+    "email": "me.mohamed.elnagar@gmail.com",
+    "url": "https://github.com/vital-maker/Vital-vue/issues"
+  },
   "files": [
-    "dist/*"
+    "dist/*",
+    "src/*",
+    "public/*",
+    "LICENSE",
+    "README.md",
+    ".gitignore",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    ".editorconfig"
   ],
   "dependencies": {},
   "devDependencies": {
@@ -50,7 +62,7 @@
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-rc.1"
   },
-  "main": "dist/vital-vue.common.js",
+  "main": "src/index.js",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },

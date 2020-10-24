@@ -139,12 +139,7 @@ const mixins = {
     textShadow: {
       type: Object,
       default: function () {
-        return {
-          x: '0',
-          y: '0',
-          blur: '1px',
-          color: 'gray'
-        }
+        return null
       }
     }
   },
@@ -479,11 +474,15 @@ const mixins = {
       }
     },
     textStyleShadow: function () {
-      const x = this.matchUnits(this.textShadow.x)
-      const y = this.matchUnits(this.textShadow.y)
-      const blur = this.matchUnits(this.textShadow.blur)
-      const color = this.matchColor(this.textShadow.color)
-      return `text-shadow: ${x} ${y} ${this.textShadow.blur ? blur : '1px'} ${color}`
+      if (this.textShadow !== null) {
+        const x = this.matchUnits(this.textShadow.x)
+        const y = this.matchUnits(this.textShadow.y)
+        const blur = this.matchUnits(this.textShadow.blur)
+        const color = this.matchColor(this.textShadow.color)
+        return `text-shadow: ${x} ${y} ${this.textShadow.blur ? blur : '1px'} ${color}`
+      } else {
+        return null
+      }
     },
     headTagsTarget: function () {
       if (this.headTags.includes(this.tag)) {
