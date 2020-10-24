@@ -15,6 +15,10 @@ export default {
     labelFor: {
       type: String,
       default: null
+    },
+    for: {
+      type: String,
+      default: null
     }
   }
 }

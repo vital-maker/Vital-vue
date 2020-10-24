@@ -1,6 +1,6 @@
 {
   "name": "vital-vue",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "private": false,
   "deprecated": false,
   "scripts": {
@@ -26,32 +26,29 @@
   "files": [
     "dist/*"
   ],
-  "dependencies": {
-    "@popperjs/core": "^2.5.3",
-    "bootstrap": "^4.5.3",
-    "core-js": "^3.6.5",
-    "jquery": "^3.5.1",
-    "popper.js": "^1.16.1",
-    "vue": "^3.0.0",
-    "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/cli-plugin-babel": "^4.5.8",
+    "@vue/cli-plugin-eslint": "^4.5.8",
+    "@vue/cli-service": "^4.5.8",
+    "@vue/compiler-sfc": "^3.0.2",
     "@vue/eslint-config-standard": "^5.1.2",
     "babel-eslint": "^10.1.0",
+    "bootstrap": "^4.5.3",
+    "core-js": "^3.6.5",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-vue": "^7.0.0-0",
+    "eslint-plugin-standard": "^4.0.2",
+    "eslint-plugin-vue": "^7.1.0",
+    "jquery": "^3.5.1",
     "lint-staged": "^9.5.0",
     "node-sass": "^4.12.0",
-    "sass-loader": "^8.0.2"
+    "popper.js": "^1.16.1",
+    "sass-loader": "^8.0.2",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-rc.1"
   },
   "main": "dist/vital-vue.common.js",
   "publishConfig": {

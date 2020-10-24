@@ -192,6 +192,9 @@ const mixins = {
       cssUnits: ['cm', 'mm', 'in', 'px', 'pt', 'pc']
     }
   },
+  mounted () {
+    // console.log(this.$refs.animation.innerHTML)
+  },
   methods: {
     matchUnits: function (key) {
       const match = String(key).match(/(\d*\.?\d*)(.*)/)
