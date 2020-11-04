@@ -48,11 +48,23 @@ const mixins = {
       type: [String, Number],
       default: ''
     },
-    align: {
+    justify: {
       type: String,
       default: null
     },
-    justify: {
+    justifySm: {
+      type: String,
+      default: null
+    },
+    justifyMd: {
+      type: String,
+      default: null
+    },
+    justifyLg: {
+      type: String,
+      default: null
+    },
+    justifyXl: {
       type: String,
       default: null
     },
@@ -125,8 +137,10 @@ const mixins = {
       default: null
     },
     textStyle: {
-      type: String,
-      default: null
+      type: [Array, String],
+      default: () => {
+        return []
+      }
     },
     textLast: {
       type: String,
@@ -141,6 +155,165 @@ const mixins = {
       default: function () {
         return null
       }
+    },
+    display: {
+      type: [String, Number],
+      default: null,
+      validator: (value) => {
+        return String(value)
+      }
+    },
+    lead: {
+      type: Boolean,
+      default: false
+    },
+    row: {
+      type: Boolean,
+      default: false
+    },
+    float: {
+      type: String,
+      default: null
+    },
+    roundedLeft: {
+      type: Boolean,
+      default: false
+    },
+    roundedRight: {
+      type: Boolean,
+      default: false
+    },
+    roundedTop: {
+      type: Boolean,
+      default: false
+    },
+    roundedBottom: {
+      type: Boolean,
+      default: false
+    },
+    roundedCircle: {
+      type: Boolean,
+      default: false
+    },
+    responsive: {
+      type: Boolean,
+      default: false
+    },
+    responsiveSm: {
+      type: Boolean,
+      default: false
+    },
+    responsiveMd: {
+      type: Boolean,
+      default: false
+    },
+    responsiveLg: {
+      type: Boolean,
+      default: false
+    },
+    responsiveXl: {
+      type: Boolean,
+      default: false
+    },
+    d: {
+      type: String,
+      default: null
+    },
+    border: {
+      type: String,
+      default: null
+    },
+    active: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    groupItem: {
+      type: Boolean,
+      default: false
+    },
+    groupHorizontal: {
+      type: Boolean,
+      default: false
+    },
+    horizontal: {
+      type: String,
+      default: null
+    },
+    groupAction: {
+      type: Boolean,
+      default: false
+    },
+    groupItemColor: {
+      type: String,
+      default: null
+    },
+    align: {
+      type: String,
+      default: null
+    },
+    alignSelf: {
+      type: String,
+      default: null
+    },
+    alignContent: {
+      type: String,
+      default: null
+    },
+    alignItems: {
+      type: String,
+      default: null
+    },
+    alignItemsSm: {
+      type: String,
+      default: null
+    },
+    alignItemsMd: {
+      type: String,
+      default: null
+    },
+    alignItemsLg: {
+      type: String,
+      default: null
+    },
+    alignItemsXl: {
+      type: String,
+      default: null
+    },
+    alignSelfSm: {
+      type: String,
+      default: null
+    },
+    alignSelfMd: {
+      type: String,
+      default: null
+    },
+    alignSelfLg: {
+      type: String,
+      default: null
+    },
+    alignSelfXl: {
+      type: String,
+      default: null
+    },
+    alignContentSm: {
+      type: String,
+      default: null
+    },
+    alignContentMd: {
+      type: String,
+      default: null
+    },
+    alignContentLg: {
+      type: String,
+      default: null
+    },
+    alignContentXl: {
+      type: String,
+      default: null
     }
   },
   data () {
@@ -174,7 +347,10 @@ const mixins = {
       rowColumns: ['1', '2', '3', '4', '5', '6'],
       columns: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', 'auto'],
       gridValues: ['sm', 'md', 'lg', 'xl'],
-      alignOptions: ['start', 'center', 'end'],
+      alignOptions: ['baseline', 'bottom', 'middle', 'top'],
+      alignItemsOptions: ['start', 'center', 'end', 'baseline', 'stretch', 'flex-start', 'flex-end', 'unset'],
+      alignSelfOptions: ['start', 'center', 'end', 'stretch', 'auto', 'baseline', 'flex-start', 'flex-end', 'unset'],
+      alignContentOptions: ['start', 'center', 'end', 'around', 'between', 'stretch', 'flex-start', 'flex-end', 'unset'],
       justifyOptions: ['start', 'center', 'end', 'around', 'between', 'evenly'],
       headTags: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
       target: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'],
@@ -183,8 +359,14 @@ const mixins = {
       textPositions: ['center', 'left', 'right', 'justify', 'end', 'start'],
       textPositionLast: ['auto'],
       textDecoration: ['none', 'unset', 'through', 'overline', 'underline'],
-      textTypes: ['body', 'uppercase', 'reset', 'truncate', 'break', 'capitalize', 'hide', 'lowercase', 'monospace', 'wrap', 'nowrap'],
-      cssUnits: ['cm', 'mm', 'in', 'px', 'pt', 'pc']
+      textTypes: ['body', 'uppercase', 'reset', 'truncate', 'break', 'capitalize', 'hide', 'lowercase', 'monospace', 'wrap', 'nowrap', 'muted'],
+      cssUnits: ['cm', 'mm', 'in', 'px', 'pt', 'pc'],
+      displayOption: ['1', '2', '3', '4'],
+      dOptions: ['flex', 'block', 'inline', 'none', 'table', 'inline-block', 'inline-flex'],
+      floatOptions: ['left', 'right'],
+      borderOptions: ['secondary', 'light', 'danger', 'dark', 'info', 'primary', 'success', 'warning'],
+      horizontalOptions: ['sm', 'md', 'lg', 'xl'],
+      groupItemColorOptions: ['secondary', 'light', 'danger', 'dark', 'info', 'primary', 'success', 'warning']
     }
   },
   mounted () {
@@ -328,12 +510,97 @@ const mixins = {
       }
       return justify
     },
-    alignItem: function () {
+    justifyContentGrid: function () {
+      let justify = null
+      if (this.justifyOptions.includes(this.justifySm)) {
+        justify += `justify-content-sm-${this.justifySm} `
+      }
+      if (this.justifyOptions.includes(this.justifyMd)) {
+        justify += `justify-content-md-${this.justifyMd} `
+      }
+      if (this.justifyOptions.includes(this.justifyLg)) {
+        justify += `justify-content-lg-${this.justifyLg} `
+      }
+      if (this.justifyOptions.includes(this.justifyXl)) {
+        justify += `justify-content-xl-${this.justifyXl}`
+      }
+      return justify
+    },
+    alignClass: function () {
       let align = null
       if (this.alignOptions.includes(this.align)) {
-        align = `align-items-${this.align}`
+        align = `align-${this.align}`
       }
       return align
+    },
+    alignItemsClass: function () {
+      let align = null
+      if (this.alignItemsOptions.includes(this.alignItems)) {
+        align = `align-items-${this.alignItems}`
+      }
+      return align
+    },
+    alignItemsGridClass: function () {
+      let grid = null
+      if (this.alignItemsOptions.includes(this.alignItemsSm)) {
+        grid += `align-items-sm-${this.alignItemsSm} `
+      }
+      if (this.alignItemsOptions.includes(this.alignItemsMd)) {
+        grid += `align-items-md-${this.alignItemsMd} `
+      }
+      if (this.alignItemsOptions.includes(this.alignItemsLg)) {
+        grid += `align-items-lg-${this.alignItemsLg} `
+      }
+      if (this.alignItemsOptions.includes(this.alignItemsXl)) {
+        grid += `align-items-xl-${this.alignItemsXl}`
+      }
+      return grid
+    },
+    alignSelfClass: function () {
+      let align = null
+      if (this.alignSelfOptions.includes(this.alignSelf)) {
+        align = `align-self-${this.alignSelf}`
+      }
+      return align
+    },
+    alignSelfGridClass: function () {
+      let grid = null
+      if (this.alignSelfOptions.includes(this.alignSelfSm)) {
+        grid += `align-self-sm-${this.alignSelfSm} `
+      }
+      if (this.alignSelfOptions.includes(this.alignSelfMd)) {
+        grid += `align-self-md-${this.alignSelfMd} `
+      }
+      if (this.alignSelfOptions.includes(this.alignSelfLg)) {
+        grid += `align-self-lg-${this.alignSelfLg} `
+      }
+      if (this.alignSelfOptions.includes(this.alignSelfXl)) {
+        grid += `align-self-xl-${this.alignSelfXl}`
+      }
+      return grid
+    },
+    alignContentClass: function () {
+      let align = null
+      if (this.alignContentOptions.includes(this.alignContent)) {
+        align = `align-content-${this.alignContent}`
+      }
+      return align
+    },
+    alignContentGridClass: function () {
+      let grid = null
+      if (this.alignContentOptions.includes(this.alignContentSm)) {
+        grid += `align-content-sm-${this.alignContentSm} `
+      }
+      if (this.alignContentOptions.includes(this.alignContentMd)) {
+        grid += `align-content-md-${this.alignContentMd} `
+      }
+      if (this.alignContentOptions.includes(this.alignContentLg)) {
+        grid += `align-content-lg-${this.alignContentLg} `
+      }
+      if (this.alignContentOptions.includes(this.alignContentXl)) {
+        grid += `align-content-xl-${this.alignContentXl}`
+      }
+      return grid
     },
     rowGridSystem: function () {
       let grid = ''
@@ -453,11 +720,19 @@ const mixins = {
       return [...this.textPositions, ...this.textPositionLast]
     },
     textStyleValue: function () {
-      if (this.textOptions.includes(this.textStyle)) {
-        return `text-${this.textStyle}`
+      let style = ''
+      let parse = []
+      if (typeof this.textStyle === 'string') {
+        parse = JSON.parse(this.textStyle)
       } else {
-        return null
+        parse = this.textStyle
       }
+      parse.forEach((item) => {
+        if (this.textOptions.includes(item)) {
+          style += `text-${item} `
+        }
+      })
+      return style
     },
     textStyleLast: function () {
       if (this.textLastStyle.includes(this.textLast)) {
@@ -488,8 +763,176 @@ const mixins = {
       if (this.headTags.includes(this.tag)) {
         return this.tag
       } else {
-        console.error('invalid head tag name')
+        console.error(`invalid head tag name '${this.tag}'`)
         return 'h3'
+      }
+    },
+    displayClass: function () {
+      if (this.displayOption.includes(this.display)) {
+        return `display-${this.display}`
+      } else {
+        return null
+      }
+    },
+    leadClass: function () {
+      if (this.lead) {
+        return 'lead'
+      } else {
+        return null
+      }
+    },
+    rowClass: function () {
+      if (this.row) {
+        return 'row'
+      } else {
+        return null
+      }
+    },
+    floatClass: function () {
+      if (this.floatOptions.includes(this.float)) {
+        return `float-${this.float}`
+      } else {
+        return null
+      }
+    },
+    roundedClass: function () {
+      if (this.rounded) {
+        return 'rounded '
+      } else {
+        return null
+      }
+    },
+    roundedLeftClass: function () {
+      if (this.roundedLeft) {
+        return 'rounded-left'
+      } else {
+        return null
+      }
+    },
+    roundedRightClass: function () {
+      if (this.roundedRight) {
+        return 'rounded-right'
+      } else {
+        return null
+      }
+    },
+    roundedTopClass: function () {
+      if (this.roundedTop) {
+        return 'rounded-top'
+      } else {
+        return null
+      }
+    },
+    roundedBottomClass: function () {
+      if (this.roundedBottom) {
+        return 'rounded-bottom'
+      } else {
+        return null
+      }
+    },
+    roundedCircleClass: function () {
+      if (this.roundedCircle) {
+        return 'rounded-circle'
+      } else {
+        return null
+      }
+    },
+    responsiveClass: function () {
+      if (this.responsive) {
+        return 'table-responsive'
+      } else {
+        return null
+      }
+    },
+    responsiveSmClass: function () {
+      if (this.responsiveSm) {
+        return 'table-responsive-sm'
+      } else {
+        return null
+      }
+    },
+    responsiveMdClass: function () {
+      if (this.responsiveMd) {
+        return 'table-responsive-md'
+      } else {
+        return null
+      }
+    },
+    responsiveLgClass: function () {
+      if (this.responsiveLg) {
+        return 'table-responsive-lg'
+      } else {
+        return null
+      }
+    },
+    responsiveXlClass: function () {
+      if (this.responsiveXl) {
+        return 'table-responsive-xl'
+      } else {
+        return null
+      }
+    },
+    dClass: function () {
+      if (this.dOptions.includes(this.d)) {
+        return `d-${this.d}`
+      } else {
+        return null
+      }
+    },
+    borderClass: function () {
+      if (this.borderOptions.includes(this.border)) {
+        return `border-${this.border}`
+      } else {
+        return null
+      }
+    },
+    activeClass: function () {
+      if (this.active) {
+        return 'active'
+      } else {
+        return null
+      }
+    },
+    disableClass: function () {
+      if (this.disabled) {
+        return 'disabled'
+      } else {
+        return null
+      }
+    },
+    groupItemClass: function () {
+      if (this.groupItem) {
+        return 'list-group-item'
+      } else {
+        return null
+      }
+    },
+    groupHorizontalClass: function () {
+      if (this.groupHorizontal) {
+        return 'list-group-horizontal'
+      } else {
+        return null
+      }
+    },
+    horizontalClass: function () {
+      if (this.horizontalOptions.includes(this.horizontal)) {
+        return `list-group-horizontal-${this.horizontal}`
+      } else {
+        return null
+      }
+    },
+    groupActionClass: function () {
+      if (this.groupAction) {
+        return 'list-group-item-action'
+      } else {
+        return null
+      }
+    },
+    groupItemColorClass: function () {
+      if (this.groupItemColorOptions.includes(this.groupItemColor)) {
+        return `list-group-item-${this.groupItemColor}`
+      } else {
+        return null
       }
     }
   }

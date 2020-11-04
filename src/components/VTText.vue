@@ -1,6 +1,15 @@
 <template>
   <p
-    :class="[fontBold,fontItalic,fontLight,fontBolder,backGroundColor,textStyleValue,textStyleDecoration]"
+    :class="[
+      fontBold,
+      fontItalic,
+      fontLight,
+      fontBolder,
+      backGroundColor,
+      textStyleValue,
+      textStyleDecoration,
+      leadClass
+      ]"
     :style="[textStyleShadow]"
   >
     {{ allTextWords }}
@@ -8,8 +17,11 @@
 </template>
 
 <script>
+import mixins from '@/data'
+
 export default {
   name: 'VTText',
+  mixins: [mixins],
   props: {
     text: {
       type: String,

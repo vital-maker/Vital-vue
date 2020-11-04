@@ -5,8 +5,10 @@
 </template>
 
 <script>
+import mixins from '@/data'
 export default {
   name: 'VTToolbar',
+  mixins: [mixins],
   props: {
     label: {
       type: String,

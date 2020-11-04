@@ -15,8 +15,10 @@
 </template>
 
 <script>
+import mixins from '@/data'
 export default {
-  name: 'VTBreadcrumb'
+  name: 'VTBreadcrumb',
+  mixins: [mixins]
 }
 </script>
 

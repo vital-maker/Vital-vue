@@ -1,6 +1,6 @@
 {
   "name": "vital-vue",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "private": false,
   "deprecated": false,
   "scripts": {
@@ -29,8 +29,6 @@
   },
   "files": [
     "dist/*",
-    "src/*",
-    "public/*",
     "LICENSE",
     "README.md",
     ".gitignore",
@@ -62,7 +60,8 @@
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-rc.1"
   },
-  "main": "src/index.js",
+  "main": "dist/vital-vue.umd.min.js",
+  "unpkg": "dist/vital-vue.umd.min.js",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },

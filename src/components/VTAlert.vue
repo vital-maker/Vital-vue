@@ -1,5 +1,8 @@
 <template>
   <div :class="[typeAlert,dismissible]" role="alert">
+    <slot name="alertHeading">
+      <VTHead v-if="heading" :tag="headTag" alert-heading>{{ headingText }}</VTHead>
+    </slot>
     <slot>{{ text }}</slot>
     <button v-if="dismiss" type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
@@ -8,13 +11,27 @@
 </template>
 
 <script>
+import mixins from '@/data'
 
 export default {
   name: 'VTAlert',
+  mixins: [mixins],
   props: {
     alert: {
       type: String,
       default: ''
+    },
+    headTag: {
+      type: String,
+      default: ''
+    },
+    heading: {
+      type: Boolean,
+      default: false
+    },
+    headingText: {
+      type: String,
+      default: 'Well done!'
     },
     text: {
       type: String,

@@ -1115,7 +1115,7 @@
 
 .fadeIn {
     -webkit-animation-name: fadeIn;
-    animation-name: fadeIn
+    animation-name: fadeIn;
 }
 
 @-webkit-keyframes fadeInDown {
@@ -1386,7 +1386,7 @@
 
 .fadeOut {
     -webkit-animation-name: fadeOut;
-    animation-name: fadeOut
+    animation-name: fadeOut;
 }
 
 @-webkit-keyframes fadeOutDown {

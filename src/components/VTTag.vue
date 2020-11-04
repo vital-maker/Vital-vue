@@ -1,8 +1,10 @@
 <script>
+import mixins from '@/data'
 import { h } from 'vue'
 
 export default {
   name: 'VTTag',
+  mixins: [mixins],
   render () {
     return h(this.powerTag, { class: [this.gridSystem] }, this.$slots)
   },

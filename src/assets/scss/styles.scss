@@ -1,6 +1,534 @@
+:root {
+  --chaseBackground: #fff;
+  --chaseBeforeDuration: 2.0s;
+  --chaseBeforeAnimationDelay1: 1s;
+  --chaseBeforeAnimationDelay2: .9s;
+  --chaseBeforeAnimationDelay3: .8s;
+  --chaseBeforeAnimationDelay4: .7s;
+  --chaseBeforeAnimationDelay5: .6s;
+  --chaseBeforeAnimationDelay6: .5s;
+
+  --flowerBoxShadowColor: #fff;
+  --flowerBoxShadowWidthFirstPlus: 26px;
+  --flowerBoxShadowWidthFirst: -26px;
+  --flowerBoxShadowWidthSecondPlus: 19px;
+  --flowerBoxShadowWidthSecond: -19px;
+  --flowerBoxShadowWidthThirdPlus: 14px;
+  --flowerBoxShadowWidthThird: -14px;
+  --flowerBoxShadowWidthFourthPlus: 10px;
+  --flowerBoxShadowWidthFourth: -10px;
+}
+
+.toast {
+  max-width: unset;
+  margin: .75rem 0;
+}
+
+.toast.VTToast-success {
+  background: #e6f5e9;
+}
+
+.toast-header.VTToast-success {
+  color: #155724;
+  background-color: rgba(212, 237, 218, .85);
+  border-bottom-color: rgba(195, 230, 203, .85);
+}
+
+.toast.VTToast-error {
+  background-color: #fcedee;
+}
+
+.toast-header.VTToast-error {
+  color: #721c24;
+  background-color: rgba(248, 215, 218, .85);
+  border-bottom-color: rgba(245, 198, 203, .85);
+}
+
+.toast.VTToast-warning {
+  background: #fff9e7;
+}
+
+.toast-header.VTToast-warning {
+  color: #856404;
+  background-color: rgba(255, 243, 205, .85);
+  border-bottom-color: rgba(255, 238, 186, .85);
+}
+
+.toast.VTToast-info {
+  background: #e5f4f7;
+}
+
+.toast-header.VTToast-info {
+  color: #0c5460;
+  background-color: rgba(209, 236, 241, .85);
+  border-bottom-color: rgba(190, 229, 235, .85);
+}
+
+.toast-header strong {
+  text-transform: capitalize;
+}
+
+.container-toast {
+  position: fixed;
+  width: 25%;
+  z-index: 9999;
+  transition: all 1s linear;
+}
+
+.container-toast.top-right {
+  top: 0;
+  right: 15px;
+}
+
+.container-toast.bottom-right {
+  bottom: 0;
+  right: 15px;
+}
+
+.container-toast.top-left {
+  top: 0;
+  left: 15px;
+}
+
+.container-toast.bottom-left {
+  bottom: 0;
+  left: 15px;
+}
+
+.container-toast.top-full {
+  top: 0;
+  padding: 0 15px;
+  width: 100%;
+}
+
+.container-toast.bottom-full {
+  bottom: 0;
+  padding: 0 15px;
+  width: 100%;
+}
+
+.container-toast.top-center {
+  top: 0;
+  right: 50%;
+  transform: translate(50%);
+}
+
+.container-toast.bottom-center {
+  bottom: 0;
+  right: 50%;
+  transform: translate(50%);
+}
+
+.VTToast {
+  display: flex;
+  color: white;
+  padding: 10px 18px;
+  box-shadow: 0 0 8px 0 #8c8c8c;
+  border-radius: 5px;
+  opacity: 0;
+  position: relative;
+  transition: all .3s linear;
+  margin: 10px 0;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.VTToast:hover {
+  box-shadow: 0 5px 8px 0 #8c8c8c;
+}
+
+.VTToast .close-toast {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  color: white;
+  cursor: pointer;
+}
+
+.VTToast .close-toast:before {
+  content: '\00D7';
+  font-size: 20px;
+}
+
+.VTToast .progress-timeout {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 6px;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.VTToast .progress-timeout div{
+  height: 6px;
+  width: 0;
+}
+.VTToast .progress-timeout div.width-animation {
+  animation: width 5s linear both;
+}
+
+// **************************************************
+.VTToast.VTToast-flat-default {
+  background: white !important;
+  color: black;
+  border: 1px solid gray;
+}
+
+.VTToast.VTToast-flat-default .progress-timeout {
+  background: black;
+  //color: white;
+}
+
+.VTToast.VTToast-flat-default .progress-timeout div {
+  background: white ;
+  //color: white;
+}
+
+.VTToast.VTToast-flat-default:hover {
+  background: white !important;
+  color: black;
+}
+
+.VTToast.VTToast-flat-default .close-toast {
+  color: black !important;
+}
+
+.VTToast.VTToast-flat-default:hover .progress-timeout div {
+  background: white ;
+  //color: black;
+}
+.VTToast.VTToast-flat-default:hover .progress-timeout {
+  background: white ;
+  //color: black;
+}
+
+// ***********************************
+
+.VTToast.VTToast-default {
+  background: black !important;
+  color: white;
+  border: 1px solid gray;
+}
+
+.VTToast.VTToast-default .progress-timeout {
+  background: white !important;
+  color: black;
+}
+
+.VTToast.VTToast-default .progress-timeout div {
+  background: white !important;
+  color: black;
+}
+
+.VTToast.VTToast-default:hover {
+  background: white !important;
+  color: black;
+}
+
+.VTToast.VTToast-default:hover .progress-timeout div {
+  background: black !important;
+  color: white;
+}
+
+// **********************************
+.VTToast.VTToast-error {
+  background: #e84141 !important;
+  color: white;
+}
+
+.VTToast.VTToast-error .progress-timeout {
+  background: #c33c3c !important;
+}
+
+.VTToast.VTToast-error .progress-timeout div {
+  background: #e84141 !important;
+}
+
+.VTToast.VTToast-error:hover {
+  background: #c33c3c !important;
+}
+
+.VTToast.VTToast-error:hover .progress-timeout div {
+  background: #c33c3c !important;
+}
+
+// *********************************************
+.VTToast.VTToast-flat-error {
+  background: white !important;
+  color: #e84141;
+  border: 1px solid #e84141;
+}
+
+.VTToast.VTToast-flat-error .progress-timeout {
+  background: #c33c3c !important;
+  //color: #c33c3c;
+}
+
+.VTToast.VTToast-flat-error .progress-timeout div {
+  background: white !important;
+  //color: #e84141;
+}
+
+.VTToast.VTToast-flat-error:hover {
+  background: white !important;
+  color: #c33c3c;
+}
+
+.VTToast.VTToast-flat-error .close-toast {
+  color: #e84141 !important;
+}
+
+.VTToast.VTToast-flat-error:hover .progress-timeout div {
+  background: white !important;
+  //color: #c33c3c;
+}
+.VTToast.VTToast-flat-error:hover .progress-timeout  {
+  background: white !important;
+  //color: #c33c3c;
+}
+
+// *********************************************
+.VTToast.VTToast-success {
+  background: mediumseagreen !important;
+}
+
+.VTToast.VTToast-success:hover {
+  background: #2b8c56 !important;
+  color: white;
+}
+
+.VTToast.VTToast-success:hover .progress-timeout div {
+  background: #2b8c56 !important;
+}
+
+.VTToast.VTToast-success .progress-timeout {
+  background: #2b8c56 !important;
+}
+
+.VTToast.VTToast-success .progress-timeout div {
+  background: mediumseagreen !important;
+}
+
+// **********************************
+.VTToast.VTToast-flat-success {
+  background: white !important;
+  color: mediumseagreen;
+  border: 1px solid mediumseagreen;
+}
+
+.VTToast.VTToast-flat-success:hover {
+  background: white !important;
+  color: #2b8c56;
+}
+
+.VTToast.VTToast-flat-success .close-toast {
+  color: mediumseagreen !important;
+}
+
+.VTToast.VTToast-flat-success:hover .progress-timeout div {
+  background: white !important;
+  //color: #2b8c56;
+}
+
+.VTToast.VTToast-flat-success .progress-timeout {
+  background: #2b8c56 !important;
+  //color: #2b8c56;
+}
+
+.VTToast.VTToast-flat-success .progress-timeout div {
+  background: white !important;
+  //color: mediumseagreen;
+}
+
+// **********************************
+.VTToast.VTToast-warning {
+  background: orange !important;
+}
+
+.VTToast.VTToast-warning:hover {
+  background: #ba7d00 !important;
+  color: white;
+}
+
+.VTToast.VTToast-warning:hover .progress-timeout div {
+  background: #ba7d00 !important;
+}
+
+.VTToast.VTToast-warning .progress-timeout {
+  background: #ba7d00 !important;
+}
+
+.VTToast.VTToast-warning .progress-timeout div {
+  background: orange !important;
+}
+
+// *******************************
+.VTToast.VTToast-flat-warning {
+  background: white !important;
+  color: orange;
+  border: 1px solid orange;
+}
+
+.VTToast.VTToast-flat-warning:hover {
+  background: white !important;
+  color: #ba7d00;
+}
+
+.VTToast.VTToast-flat-warning .close-toast {
+  color: orange !important;
+}
+
+.VTToast.VTToast-flat-warning:hover .progress-timeout div {
+  background: white !important;
+  //color: #ba7d00;
+}
+.VTToast.VTToast-flat-warning:hover .progress-timeout {
+  background: white !important;
+  //color: #ba7d00;
+}
+
+.VTToast.VTToast-flat-warning .progress-timeout {
+  background: #ba7d00 !important;
+  //color: #ba7d00;
+}
+
+.VTToast.VTToast-flat-warning .progress-timeout div {
+  background: white !important;
+  //color: orange;
+}
+
+// *******************************
+.VTToast.VTToast-info {
+  background: deepskyblue !important;
+}
+
+.VTToast.VTToast-info:hover {
+  background: #0086b3 !important;
+  color: white;
+}
+
+.VTToast.VTToast-info:hover .progress-timeout div {
+  background: #0086b3 !important;
+}
+
+.VTToast.VTToast-info .progress-timeout {
+  background: #0086b3 !important;
+}
+
+.VTToast.VTToast-info .progress-timeout div {
+  background: deepskyblue !important;
+}
+
+// *****************************************
+.VTToast.VTToast-flat-info {
+  background: white !important;
+  color: deepskyblue;
+  border: 1px solid deepskyblue;
+}
+
+.VTToast.VTToast-flat-info:hover {
+  background: white !important;
+  color: #0086b3;
+}
+
+.VTToast.VTToast-flat-info .close-toast {
+  color: deepskyblue !important;
+}
+
+.VTToast.VTToast-flat-info:hover .progress-timeout div {
+  background: white !important;
+  //color: #0086b3;
+}
+.VTToast.VTToast-flat-info:hover .progress-timeout {
+  background: white !important;
+  //color: #0086b3;
+}
+
+.VTToast.VTToast-flat-info .progress-timeout {
+  background: #0086b3 !important;
+  //color: #0086b3;
+}
+
+.VTToast.VTToast-flat-info .progress-timeout div {
+  background: white !important;
+  //color: deepskyblue;
+}
+
+// *****************************************
+@keyframes width {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.VTToast .mode {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px 0;
+}
+
+.VTToast .VTToast-container {
+  padding: 0 15px 0 15px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.VTToast .VTToast-container .VTToast-content .message {
+  margin: 0;
+}
+
+.VTToast .VTToast-container .VTToast-header h5 {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
 .justify-content-evenly {
   justify-content: space-evenly !important;
 }
+
+.align-items-flex-start {
+  align-items: flex-start;
+}
+
+.align-items-flex-end {
+  align-items: flex-end;
+}
+
+.align-items-unset {
+  align-items: unset;
+}
+
+.align-content-flex-start {
+  align-content: flex-start;
+}
+
+.align-content-flex-end {
+  align-content: flex-end;
+}
+
+.align-content-unset {
+  align-content: unset;
+}
+
+.align-self-flex-start {
+  align-self: flex-start;
+}
+
+.align-self-flex-end {
+  align-self: flex-end;
+}
+
+.align-self-unset {
+  align-self: unset;
+}
+
 .text-decoration-through {
   text-decoration: line-through;
 }
@@ -52,38 +580,72 @@
 .text-last-unset {
   text-align-last: unset;
 }
+
 .btn-black {
   color: #fff;
   background-color: #000000;
   border-color: #000000;
 }
+
 .btn-black:hover {
   color: #fff;
   background-color: #717171;
   border-color: #717171;
   outline-color: #717171;
 }
+
 .btn-black:focus {
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(113, 113, 113,.25);
+  box-shadow: 0 0 0 0.2rem rgba(113, 113, 113, .25);
 }
+
 .btn-aqua {
   color: #fff;
   background-color: #00ffff;
   border-color: #00ffff;
 }
+
 .btn-aqua:hover {
   color: #fff;
   background-color: #00d0d0;
   border-color: #00d0d0;
 }
+
 .btn-aqua:focus {
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 208, 208,.25);
+  box-shadow: 0 0 0 0.2rem rgba(0, 208, 208, .25);
 }
+
 @media (min-width: 576px) {
   .justify-content-sm-evenly {
     justify-content: space-evenly !important;
+  }
+  .align-items-sm-flex-end {
+    align-items: flex-end !important;
+  }
+  .align-items-sm-flex-start {
+    align-items: flex-start !important;
+  }
+  .align-items-sm-unset {
+    align-items: unset !important;
+  }
+  .align-self-sm-flex-end {
+    align-self: flex-end !important;
+  }
+  .align-self-sm-flex-start {
+    align-self: flex-start !important;
+  }
+  .align-self-sm-unset {
+    align-self: unset !important;
+  }
+  .align-content-sm-flex-end {
+    align-content: flex-end !important;
+  }
+  .align-content-sm-flex-start {
+    align-content: flex-start !important;
+  }
+  .align-content-sm-unset {
+    align-content: unset !important;
   }
 }
 
@@ -91,16 +653,97 @@
   .justify-content-md-evenly {
     justify-content: space-evenly !important;
   }
+  .align-items-md-flex-end {
+    align-items: flex-end !important;
+  }
+  .align-items-md-flex-start {
+    align-items: flex-start !important;
+  }
+  .align-items-md-unset {
+    align-items: unset !important;
+  }
+  .align-self-md-flex-end {
+    align-self: flex-end !important;
+  }
+  .align-self-md-flex-start {
+    align-self: flex-start !important;
+  }
+  .align-self-md-unset {
+    align-self: unset !important;
+  }
+  .align-content-md-flex-end {
+    align-content: flex-end !important;
+  }
+  .align-content-md-flex-start {
+    align-content: flex-start !important;
+  }
+  .align-content-md-unset {
+    align-content: unset !important;
+  }
 }
 
 @media (min-width: 992px) {
   .justify-content-lg-evenly {
     justify-content: space-evenly !important;
   }
+  .align-items-lg-flex-end {
+    align-items: flex-end !important;
+  }
+  .align-items-lg-flex-start {
+    align-items: flex-start !important;
+  }
+  .align-items-lg-unset {
+    align-items: unset !important;
+  }
+  .align-self-lg-flex-end {
+    align-self: flex-end !important;
+  }
+  .align-self-lg-flex-start {
+    align-self: flex-start !important;
+  }
+  .align-self-lg-unset {
+    align-self: unset !important;
+  }
+  .align-content-lg-flex-end {
+    align-content: flex-end !important;
+  }
+  .align-content-lg-flex-start {
+    align-content: flex-start !important;
+  }
+  .align-content-lg-unset {
+    align-content: unset !important;
+  }
 }
 
 @media (min-width: 1200px) {
   .justify-content-xl-evenly {
     justify-content: space-evenly !important;
+  }
+  .align-items-xl-flex-end {
+    align-items: flex-end !important;
+  }
+  .align-items-xl-flex-start {
+    align-items: flex-start !important;
+  }
+  .align-items-xl-unset {
+    align-items: unset !important;
+  }
+  .align-self-xl-flex-end {
+    align-self: flex-end !important;
+  }
+  .align-self-xl-flex-start {
+    align-self: flex-start !important;
+  }
+  .align-self-xl-unset {
+    align-self: unset !important;
+  }
+  .align-content-xl-flex-end {
+    align-content: flex-end !important;
+  }
+  .align-content-xl-flex-start {
+    align-content: flex-start !important;
+  }
+  .align-content-xl-unset {
+    align-content: unset !important;
   }
 }
