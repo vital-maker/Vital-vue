@@ -1,6 +1,6 @@
 <p align="center"><a href="#" target="_blank"><img width="300" src="./src/assets/logo.png" alt="Vital logo"></a></p>
 <p align="center">
-  <a href="https://npmcharts.com/compare/vital-vue?interval=7"><img src="https://img.shields.io/github/downloads/vital-maker/Vital-vue/total" alt="Downloads"></a>
+  <!--<a href="https://npmcharts.com/compare/vital-vue?interval=7"><img src="https://img.shields.io/github/downloads/vital-maker/Vital-vue/total" alt="Downloads"></a>-->
   <a href="https://www.npmjs.com/package/vital-vue"><img src="https://img.shields.io/github/package-json/v/vital-maker/vital-vue" alt="Version"></a>
   <a href="https://github.com/vital-maker/Vital-vue/blob/main/LICENSE"><img src="https://img.shields.io/github/license/vital-maker/Vital-vue" alt="License"></a>
   <br>
